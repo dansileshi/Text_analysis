@@ -1,0 +1,27 @@
+data:
+  csv_file_path: ./archive/imdb-dataset.csv
+  test_set_ratio: 0.3
+  train_csv_save_path: ./archive/train.csv
+  test_csv_save_path: ./archive/test.csv
+
+features:
+  vectorizer: tfidf-vectorizer
+  train_features_save_path: ./archive/train.joblib
+  test_features_save_path: ./archive/test.joblib
+
+train:
+  model_type: 'neural_network'  # logistic_regression, random_forest, neural_network, Specify the default model type here
+  logistic_regression_params:
+    penalty: l2
+    C: 1.0
+    solver: lbfgs
+  random_forest_params:
+    n_estimators: 100
+    max_depth: 10
+  neural_network_params:
+    hidden_layer_sizes: [10,10]
+    activation: 'relu'
+  model_save_path: ./archive/model.joblib
+
+evaluate:
+  results_save_path: ./archive/results.yaml
