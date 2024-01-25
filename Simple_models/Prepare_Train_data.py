@@ -73,6 +73,14 @@ def train(config):
     joblib.dump(model, config.train.model_save_path)
 
 def main(config):
+
+    # Create the "archive" folder if it doesn't exist
+    archive_folder = './archive'
+    if not os.path.exists(archive_folder):
+        os.makedirs(archive_folder)
+
+
+
     # Modify the path to the CSV file
     dataset_csv_path = './imdb_data/IMDB Dataset.csv' 
 
